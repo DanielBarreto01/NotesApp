@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">NotesApp</string>
+    <string name="mi_tarea">Ingresa tarea</string>
+    <string name="agregar">Agregar</string>
+    <string name="completadas">Completadas</string>
+    <string name="hint_task_title">Task Title</string>
+    <string name="date_amp_time"><![CDATA[Date & time]]></string>
+    <string name="description">Description</string>
+    <string name="completed">Tareas completadas\n</string>
+</resources>

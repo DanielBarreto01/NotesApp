@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/fragmentAddTasks">
+
+    <fragment
+        android:id="@+id/fragmentAddTasks"
+        android:name="com.example.notesapp.ui.screensFragments.add_tasks.FragmentAddTasks"
+        android:label="fragment_add_tasks"
+        tools:layout="@layout/fragment_add_tasks" >
+        <action
+            android:id="@+id/action_fragmentAddTasks_to_fragmentCompletedTasks2"
+            app:destination="@id/fragmentCompletedTasks" />
+        <action
+            android:id="@+id/action_fragmentAddTasks_to_fragmentDetailTasks"
+            app:destination="@id/fragmentDetailTasks" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentCompletedTasks"
+        android:name="com.example.notesapp.ui.screensFragments.completedTasks.FragmentCompletedTasks"
+        android:label="fragment_completed_tasks"
+        tools:layout="@layout/fragment_completed_tasks" >
+        <action
+            android:id="@+id/action_fragmentCompletedTasks_to_fragmentDetailTasks"
+            app:destination="@id/fragmentDetailTasks" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentDetailTasks"
+        android:name="com.example.notesapp.ui.screensFragments.detailTasks.FragmentDetailTasks"
+        android:label="fragment_detail_task"
+        tools:layout="@layout/fragment_detail_task" />
+</navigation>
