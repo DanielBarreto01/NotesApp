@@ -30,5 +30,10 @@
         android:id="@+id/fragmentDetailTasks"
         android:name="com.example.notesapp.ui.screensFragments.detailTasks.FragmentDetailTasks"
         android:label="fragment_detail_task"
-        tools:layout="@layout/fragment_detail_task" />
+        tools:layout="@layout/fragment_detail_task" >
+        <argument
+            android:name="idTask"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>

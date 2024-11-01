@@ -33,5 +33,6 @@ class TaskAdapter(
 
     fun updateTaskList(taskList: List<Task>) {
         this.addListTask = taskList
+        notifyDataSetChanged()
     }
 }

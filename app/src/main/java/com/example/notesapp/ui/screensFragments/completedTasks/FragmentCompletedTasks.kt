@@ -10,7 +10,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.notesapp.R
 import com.example.notesapp.data.viewModel.TaskViewModel
 import com.example.notesapp.databinding.FragmentCompletedTasksBinding
 import com.example.notesapp.ui.screensFragments.add_tasks.rv.TaskAdapter
@@ -49,14 +48,20 @@ class FragmentCompletedTasks : Fragment() {
     }
 
     private fun launchActivityDetail(idTask: Int) {
-        tasksViewModel.setSelectedTask(idTask)
-        findNavController().navigate(R.id.action_fragmentCompletedTasks_to_fragmentDetailTasks)
+        val action = FragmentCompletedTasksDirections.actionFragmentCompletedTasksToFragmentDetailTasks(idTask)
+        findNavController().navigate(action)
     }
 
     @SuppressLint("NotifyDataSetChanged")
     private fun checkTask(idTask: Int) {
-        tasksViewModel.taskList.find { it.id == idTask }?.isChecked = false
-        updateUiState()
+        lifecycleScope.launch {
+            val taskList = tasksViewModel.uiState.value.taskList
+            taskList.find { it.id == idTask }?.let { task ->
+                task.isChecked = false
+                tasksViewModel.setPendingTasks(taskList)
+                updateUiState()
+            }
+        }
     }
 
     @SuppressLint("NotifyDataSetChanged")

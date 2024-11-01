@@ -1,7 +1,11 @@
 package com.example.notesapp.data.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "task_table")
 data class Task(
-    val id:Int,
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
     var title: String,
     var description: String,
     var isChecked: Boolean
